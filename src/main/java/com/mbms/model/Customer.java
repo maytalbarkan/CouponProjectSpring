@@ -1,5 +1,6 @@
 package com.mbms.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Basic;
@@ -10,16 +11,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.validation.Valid;
-import javax.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Customer {
 
 	@Id
@@ -35,5 +29,57 @@ public class Customer {
 	@ManyToMany
 	@Valid
 	private List<Coupon> coupons;
+
+	public Customer() {
+		coupons = new ArrayList<>();
+	}
+
+	public Customer(String name, String password, String country, String city, String address) {
+		this.name = name;
+		this.password = password;
+		this.coupons = new ArrayList<>();
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public List<Coupon> getCoupons() {
+		return coupons;
+	}
+
+	public void setCoupons(List<Coupon> set) {
+		this.coupons = set;
+	}
+
+	public void addCoupon(Coupon coupon) {
+		this.coupons.add(coupon);
+	}
+
+	@Override
+	public String toString() {
+		return "Customer: id=" + id + ", name=" + name + ", password=" + password + " coupons: ";
+	}
+	
 	
 }
