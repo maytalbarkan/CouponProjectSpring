@@ -1,6 +1,7 @@
 package com.mbms.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Basic;
@@ -12,8 +13,14 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.validation.Valid;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+
 
 @Entity
+@Data
+@AllArgsConstructor
 public class Customer {
 
 	@Id
@@ -80,6 +87,6 @@ public class Customer {
 	public String toString() {
 		return "Customer: id=" + id + ", name=" + name + ", password=" + password + " coupons: ";
 	}
-	
-	
+
 }
+	

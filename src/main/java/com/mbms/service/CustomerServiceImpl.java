@@ -88,12 +88,12 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public Collection<Coupon> getCouponByCategory(@NotNull CouponCaregory category) {
+	public Collection<Coupon> getCouponByCategory(@NotNull int customerId,CouponCaregory category) {
 		return couponRepository.findByCategory(category);
 	}
 
 	@Override
-	public Collection<Coupon> getCouponLowerThanPrice(@Positive double price) {
+	public Collection<Coupon> getCouponLowerThanPrice(@Positive int customerId, double price) {
 		return couponRepository.findByPriceLessThan(price);
 
 	}

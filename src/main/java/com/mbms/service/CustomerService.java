@@ -26,13 +26,14 @@ public interface CustomerService {
 	Customer getCustomer(@Positive int customerId) throws  CouponSystemException;
 	
 	Collection<Coupon> getAllCustomerCoupons(@Positive int customerId) throws  CouponSystemException;	
-	
-	Collection<Coupon> getCouponByCategory(CouponCaregory category) ;
-
-	Collection<Coupon> getCouponLowerThanPrice(@Positive double price) ;
 
 	Customer getCustomerByName(String name) throws CouponSystemException;
 
 	boolean checkIfCustomerAlraedyPurchasedCoupon(int customerId, int couponId );
+	
+	
+	Collection<Coupon> getCouponByCategory(@NotNull int customerId,CouponCaregory category);
+	
+	Collection<Coupon> getCouponLowerThanPrice(@Positive int customerId, double price); 
 	
 }
